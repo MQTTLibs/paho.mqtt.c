@@ -21,7 +21,7 @@
 ## compilation/linkage settings
 
 CONFIGURE_FILE(VersionInfo.h.in
-    ${CMAKE_BINARY_DIR}/VersionInfo.h
+    ${PROJECT_BINARY_DIR}/VersionInfo.h
     @ONLY
     )
 
@@ -134,7 +134,7 @@ IF (PAHO_BUILD_SHARED)
                 $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
                 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
             PRIVATE
-                ${CMAKE_BINARY_DIR})
+                ${PROJECT_BINARY_DIR})
     ENDFOREACH()
     
 	INSTALL(TARGETS paho-mqtt3c paho-mqtt3a
@@ -168,7 +168,7 @@ IF (PAHO_BUILD_STATIC)
                 $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
                 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
             PRIVATE
-                ${CMAKE_BINARY_DIR})
+                ${PROJECT_BINARY_DIR})
     ENDFOREACH()
 
     IF (NOT PAHO_BUILD_SHARED)
@@ -230,7 +230,7 @@ IF (PAHO_WITH_SSL)
                     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
                     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
                 PRIVATE
-                    ${CMAKE_BINARY_DIR})
+                    ${PROJECT_BINARY_DIR})
             TARGET_LINK_LIBRARIES(${TARGET}
                 PUBLIC
                     OpenSSL::SSL OpenSSL::Crypto ${LIBS_SYSTEM})
@@ -296,7 +296,7 @@ IF (PAHO_WITH_SSL)
                     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
                     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
                 PRIVATE
-                    ${CMAKE_BINARY_DIR})
+                    ${PROJECT_BINARY_DIR})
             TARGET_LINK_LIBRARIES(${TARGET}
                 PUBLIC
                     OpenSSL::SSL OpenSSL::Crypto ${LIBS_SYSTEM})

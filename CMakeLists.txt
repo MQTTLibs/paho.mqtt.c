@@ -22,8 +22,8 @@ PROJECT("Eclipse Paho C" C)
 MESSAGE(STATUS "CMake version: " ${CMAKE_VERSION})
 MESSAGE(STATUS "CMake system name: " ${CMAKE_SYSTEM_NAME})
 
-SET(CMAKE_SCRIPTS "${CMAKE_SOURCE_DIR}/cmake")
-SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/modules")
+SET(CMAKE_SCRIPTS "${PROJECT_SOURCE_DIR}/cmake")
+SET(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/modules")
 
 ## build settings
 file(READ version.major PAHO_VERSION_MAJOR)
@@ -97,8 +97,8 @@ IF (PAHO_ENABLE_CPACK)
 
         SET(CPACK_GENERATOR "DEB")
         CONFIGURE_FILE(${CMAKE_SCRIPTS}/CPackDebConfig.cmake.in
-                ${CMAKE_BINARY_DIR}/CPackDebConfig.cmake @ONLY)
-        SET(CPACK_PROJECT_CONFIG_FILE ${CMAKE_BINARY_DIR}/CPackDebConfig.cmake)
+                ${PROJECT_BINARY_DIR}/CPackDebConfig.cmake @ONLY)
+        SET(CPACK_PROJECT_CONFIG_FILE ${PROJECT_BINARY_DIR}/CPackDebConfig.cmake)
     ELSE()
             SET(CPACK_GENERATOR "TGZ")
     ENDIF()
